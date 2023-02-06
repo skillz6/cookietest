@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script>
+      function displayCookies() {
+        var allCookies = document.cookie.split(";");
+        var cookies = {};
+        for (var i = 0; i < allCookies.length; i++) {
+          var cookie = allCookies[i].trim();
+          var index = cookie.indexOf("=");
+          var key = cookie.substring(0, index);
+          var value = cookie.substring(index + 1);
+          cookies[key] = value;
+        }
+        console.log("All Cookies: " + JSON.stringify(cookies));
+        document.getElementById("cook").innerHTML = JSON.stringify(cookies);
+      }
+    </script>
+  </head>
+  <body onload="displayCookies()">
+    <div id="cook">hello</div>
+    <!-- <button onclick="displayCookies()">hello</button> -->
+  </body>
+</html>
